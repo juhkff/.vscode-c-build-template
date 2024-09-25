@@ -1,0 +1,31 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "(gdb) 启动",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",  // 这里的 ${fileDirname} 会被替换为当前打开的文件的目录；${fileBasenameNoExtension} 会被替换为当前打开的文件的文件名（不包含后缀）
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",  // cwd 为当前工作目录，这里的 ${fileDirname} 会被替换为当前打开的文件的目录
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "miDebuggerPath": "D:\\mingw64\\bin\\gdb.exe",  // 这里的路径需要根据实际情况修改，指定 gdb 的路径
+      "setupCommands": [
+        {
+          "description": "为 gdb 启用整齐打印",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "将反汇编风格设置为 Intel",
+          "text": "-gdb-set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "C/C++: gcc.exe 生成活动文件"  // 这里的值需要和 .vscode/tasks.json 中的 label 一致
+    }
+  ]
+}

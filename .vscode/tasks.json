@@ -1,0 +1,28 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "C/C++: gcc.exe 生成活动文件",
+			"command": "D:\\cygwin64\\bin\\gcc.exe",	// 这里的路径需要根据实际情况修改
+			"args": [
+				"-fdiagnostics-color=always",
+				"-g",
+				"${file}",	// 这里的 ${file} 会被替换为当前打开的文件的绝对路径；如果需要编译多个文件，可以使用 ${workspaceFolder}/**/*.c, ${workspaceFolder}/**/*.cpp 等
+				"-o",	
+				"${fileDirname}\\${fileBasenameNoExtension}.exe"	// 这里的 ${fileDirname} 会被替换为当前打开的文件的目录；${fileBasenameNoExtension} 会被替换为当前打开的文件的文件名（不包含后缀）
+			],
+			"options": {
+				"cwd": "${fileDirname}"	// cwd 为当前工作目录，这里的 ${fileDirname} 会被替换为当前打开的文件的目录
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "编译器: D:\\mingw64\\bin\\gcc.exe"	// 这里的路径需要根据实际情况修改
+		}
+	]
+}
